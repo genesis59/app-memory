@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item color="primary">
+      <ion-back-button color="dark"></ion-back-button>
+      <ion-title>
+        memos
+      </ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid >
+    <ion-row>
+      <ion-col *ngFor="let card of cardsList; let item = index" (click)="pileFace(item)" size="4">     
+        <ion-img src="/assets/{{ card.image }}" *ngIf="card.face"></ion-img>
+        <ion-img src="/assets/img/question-mark.png" *ngIf="!card.face"></ion-img>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block">Rejouer</ion-button>
+  </ion-toolbar>
+</ion-footer>

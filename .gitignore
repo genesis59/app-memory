@@ -3,6 +3,8 @@
 
 *~
 *.sw[mnpcod]
+*.zip
+*.jpg
 .tmp
 *.tmp
 *.tmp.*
