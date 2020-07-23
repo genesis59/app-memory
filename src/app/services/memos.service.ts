@@ -1,3 +1,4 @@
+import { SettingsService } from 'src/app/services/settings.service';
 import { Injectable } from '@angular/core';
 
 // Interface objet type
@@ -13,7 +14,10 @@ export interface CardInterface {
   providedIn: 'root'
 })
 export class MemosService {
-// tableau des cartes
+
+
+  // --------------------- Cards software -------------------------------
+
   private cardsList: CardInterface[] = [
     {
       id: 1,
@@ -101,13 +105,102 @@ export class MemosService {
     },
   ];
 
-  constructor() { }
+  // -------------------------cards animals --------------------
 
-// mélange des éléments d'un tableau
+  private cardsListAnimals: CardInterface[] = [
+    {
+      id: 13,
+      title: 'tigre',
+      image: '/img/cards/8.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 14,
+      title: 'leopard',
+      image: '/img/cards/9.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 15,
+      title: 'loup',
+      image: '/img/cards/10.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 16,
+      title: 'chien',
+      image: '/img/cards/11.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 17,
+      title: 'chiot',
+      image: '/img/cards/12.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 18,
+      title: 'mouton',
+      image: '/img/cards/13.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 19,
+      title: 'tigre',
+      image: '/img/cards/8.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 20,
+      title: 'leopard',
+      image: '/img/cards/9.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 21,
+      title: 'loup',
+      image: '/img/cards/10.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 22,
+      title: 'chien',
+      image: '/img/cards/11.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 23,
+      title: 'chiot',
+      image: '/img/cards/12.png',
+      face: false,
+      clickable: true
+    },
+    {
+      id: 24,
+      title: 'mouton',
+      image: '/img/cards/13.png',
+      face: false,
+      clickable: true
+    },
+  ];
+
+  constructor(private settingsService: SettingsService) { }
+
+  // mélange des éléments d'un tableau
   private shuffle() {
     let temp;
     let randomPosition;
-    for (let position in this.cardsList){
+    for (let position in this.cardsList) {
       randomPosition = Math.floor(Math.random() * this.cardsList.length);
       temp = this.cardsList[position];
       this.cardsList[position] = this.cardsList[randomPosition];

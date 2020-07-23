@@ -14,14 +14,26 @@
   <ion-grid >
     <ion-row>
       <ion-col *ngFor="let card of cardsList; let item = index" (click)="pileFace(item)" size="4">     
-        <ion-img src="/assets/{{ card.image }}" *ngIf="card.face"></ion-img>
-        <ion-img src="/assets/img/question-mark.png" *ngIf="!card.face"></ion-img>  
+        <ion-img src="/assets/{{ card.image }}" *ngIf="card.face" ></ion-img>
+        <ion-img src="/assets/img/question-mark.png" *ngIf="!card.face" ></ion-img>  
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="block" (click)="ngOnInit()">Rejouer</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button expand="block" (click)="ngOnInit()" [color]="userConfig.button">Rejouer</ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" [color]="userConfig.button" routerLink="/settings">
+            <ion-icon name="settings" slot="icon-only" color="dark"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-footer>

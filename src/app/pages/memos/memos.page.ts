@@ -1,6 +1,7 @@
 import { MemosService, CardInterface } from './../../services/memos.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { SettingsService, SettingsInterface } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-memos',
@@ -20,8 +21,19 @@ export class MemosPage implements OnInit {
   // Compteur de couple de cartes trouvés
   public count: number = 0;
 
+  public userConfig: SettingsInterface = {
+    button: '',
+    themeCards: ''
+  };
 
-  constructor(public memosservice: MemosService, public toast: ToastController) { }
+
+  constructor(
+    public memosservice: MemosService,
+    public toast: ToastController,
+    public settingsService: SettingsService
+    ) { }
+
+    
 
   // Toast vous avez gagné
   public async showResult(success) {
@@ -83,7 +95,11 @@ export class MemosPage implements OnInit {
 
   }
 
-  ngOnInit() {
+  async ionViewWillEnter(){
+    this.userConfig = await (this.settingsService.getConfig());
+  }
+
+  async ngOnInit() {
     this.cardsList = this.memosservice.getData();
     this.afficheAllCard(this.cardsList);
     this.count = 0;

@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item color="primary">
+      <ion-back-button color="dark"></ion-back-button>
+      <ion-title>settings</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6">
+        <ion-label>bouton:</ion-label>
+      </ion-col>
+      <ion-col size="6">
+        <ion-select placeholder="Select One" [(ngModel)]="userConfig.button" (ionChange)="settingsService.save()">
+          <ion-select-option value="primary">Bleu</ion-select-option>
+          <ion-select-option value="danger">Rouge</ion-select-option>
+          <ion-select-option value="success">Vert</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="6">
+        <ion-label>Thème:</ion-label>
+      </ion-col>
+      <ion-col size="6">
+        <ion-select placeholder="Select One" [(ngModel)]="userConfig.themeCards" (ionChange)="settingsService.save()">
+          <ion-select-option value="software">Logiciels</ion-select-option>
+          <ion-select-option value="animal">Animaux</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

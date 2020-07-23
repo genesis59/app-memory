@@ -1,21 +1,21 @@
+import { Component, OnInit } from '@angular/core';
 import { SettingsService, SettingsInterface } from 'src/app/services/settings.service';
-import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-settings',
+  templateUrl: './settings.page.html',
+  styleUrls: ['./settings.page.scss'],
 })
-export class HomePage {
+export class SettingsPage implements OnInit {
 
   public userConfig: SettingsInterface = {
     button: 'primary',
     themeCards: 'software'
   };
 
-  constructor(private settingsService: SettingsService) {}
+  constructor(public settingsService: SettingsService) { }
 
-  async ionViewWillEnter(){
+  async ionViewWillEnter() {
     this.userConfig = await (this.settingsService.getConfig());
   }
 

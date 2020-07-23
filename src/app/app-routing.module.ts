@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'memos',
     loadChildren: () => import('./pages/memos/memos.module').then( m => m.MemosPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./pages/settings/settings.module').then( m => m.SettingsPageModule)
+  },
 ];
 
 @NgModule({
