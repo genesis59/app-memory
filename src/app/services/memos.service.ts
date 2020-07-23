@@ -6,6 +6,7 @@ export interface CardInterface {
   title: string;
   image: string;
   face: boolean;
+  clickable: boolean;
 }
 
 @Injectable({
@@ -18,73 +19,85 @@ export class MemosService {
       id: 1,
       title: 'Github',
       image: '/img/cards/0.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 2,
       title: 'Bower',
       image: '/img/cards/1.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 3,
       title: 'chat',
       image: '/img/cards/2.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 4,
       title: 'NodeJS',
       image: '/img/cards/3.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 5,
       title: 'Opera',
       image: '/img/cards/5.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 6,
       title: 'HTML5',
       image: '/img/cards/6.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 7,
       title: 'Github',
       image: '/img/cards/0.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 8,
       title: 'Bower',
       image: '/img/cards/1.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 9,
       title: 'chat',
       image: '/img/cards/2.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 10,
       title: 'NodeJS',
       image: '/img/cards/3.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 11,
       title: 'Opera',
       image: '/img/cards/5.png',
-      face: false
+      face: false,
+      clickable: true
     },
     {
       id: 12,
       title: 'HTML5',
       image: '/img/cards/6.png',
-      face: false
+      face: false,
+      clickable: true
     },
   ];
 

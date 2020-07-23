@@ -5,6 +5,7 @@
       <ion-title>
         memos
       </ion-title>
+      <ion-badge slot="end"> {{ count }} / 6</ion-badge>
     </ion-item>
   </ion-toolbar>
 </ion-header>
@@ -21,6 +22,6 @@
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-button expand="block">Rejouer</ion-button>
+    <ion-button expand="block" (click)="ngOnInit()">Rejouer</ion-button>
   </ion-toolbar>
 </ion-footer>
