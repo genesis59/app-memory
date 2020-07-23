@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-
+// Interface objet type
 export interface CardInterface {
   id: number;
   title: string;
@@ -13,7 +13,7 @@ export interface CardInterface {
   providedIn: 'root'
 })
 export class MemosService {
-
+// tableau des cartes
   private cardsList: CardInterface[] = [
     {
       id: 1,
@@ -103,7 +103,7 @@ export class MemosService {
 
   constructor() { }
 
-
+// mélange des éléments d'un tableau
   private shuffle() {
     let temp;
     let randomPosition;
@@ -114,6 +114,7 @@ export class MemosService {
       this.cardsList[randomPosition] = temp;
     }
   }
+  // Renvoie un tableau cardList mélangé
   public getData() {
     this.shuffle();
     return JSON.parse(JSON.stringify(this.cardsList));

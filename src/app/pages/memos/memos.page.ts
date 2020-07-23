@@ -8,21 +8,25 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./memos.page.scss'],
 })
 export class MemosPage implements OnInit {
-
   public cardsList: CardInterface[];
+  // Mémoire temp pour la première carte du couple cliqué
   public tempId: number = -1;
   public tempTitle: string;
+  // Mémoire temp pour la deuxième carte du couple cliqué
   public tempId2: number = -1;
   public tempTitle2: string;
+  // Permettre l'activation/désactivation de l'evenement click sur une image
   public disabled: boolean = false;
+  // Compteur de couple de cartes trouvés
   public count: number = 0;
 
 
   constructor(public memosservice: MemosService, public toast: ToastController) { }
 
+  // Toast vous avez gagné
   public async showResult(success) {
     const myToast = await this.toast.create({
-      message: 'Bravo vous avez gagné',
+      message: 'Bravo vous avez gagné !!!',
       duration: 3000,
       position: 'middle'
     });
@@ -31,8 +35,7 @@ export class MemosPage implements OnInit {
     }
 
   }
-
-
+  // Gestion des click sur les images
   public pileFace(item) {
     if (this.cardsList[item].clickable) {
       this.cardsList[item].face = !this.cardsList[item].face;
@@ -57,7 +60,9 @@ export class MemosPage implements OnInit {
           this.tempId = -1;
           this.tempTitle = '';
           this.tempTitle2 = '';
+          // increment nombres de couples trouvés 
           this.count++;
+          // Toast vous avez gagné
           this.showResult(this.count);
         } else {
           // si test NON ok on réinitialise les variables pour rééssayer
@@ -69,7 +74,7 @@ export class MemosPage implements OnInit {
       }
     }
   };
-
+  // fonction afficher/masquer les cartes
   public afficheAllCard(list) {
     for (let i = 0; i < list.length; i++) {
       this.cardsList[i].face = !this.cardsList[i].face;
